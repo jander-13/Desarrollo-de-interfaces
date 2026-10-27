@@ -3,6 +3,8 @@ package PruebaSwing1;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Form1 {
     private JPanel jPanel1;
@@ -12,6 +14,9 @@ public class Form1 {
     private JButton button2;
     private JCheckBox checkBox1;
     private JButton button3;
+    private JCheckBox alPulsarCheckBox;
+    private JCheckBox alSoltarCheckBox;
+    private JTextField textField2;
 
     public Form1() {
         button1.addActionListener(new ActionListener() {
@@ -41,6 +46,25 @@ public class Form1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textField1.setText("Hola Eydan");
+            }
+        });
+
+        button3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                alPulsarCheckBox.setSelected(true);
+                textField2.setText("Pulsando...");
+
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                alSoltarCheckBox.setSelected(true);
+                textField2.setText("Soltado");
+
             }
         });
     }
