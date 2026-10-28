@@ -17,6 +17,15 @@ public class Form1 {
     private JCheckBox alPulsarCheckBox;
     private JCheckBox alSoltarCheckBox;
     private JTextField textField2;
+    private JButton lanzarUnTemporizadorButton;
+    private JButton arrancarTemporizadorIncrementoSpinnerButton;
+    private JSpinner spinner1;
+    private JButton pararButton;
+    private JProgressBar progressBar1;
+    private JButton arrancarPararButton;
+
+    private Timer timerSpinner;
+    private Timer timerProgressBar;
 
     public Form1() {
         button1.addActionListener(new ActionListener() {
@@ -65,6 +74,53 @@ public class Form1 {
                 alSoltarCheckBox.setSelected(true);
                 textField2.setText("Soltado");
 
+            }
+        });
+        lanzarUnTemporizadorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Timer timer = new Timer (2000, t ->{
+                        JOptionPane.showMessageDialog(jPanel1,"Hola Jander");
+                        JOptionPane.showMessageDialog(jPanel1,"Hola Paco");
+                });
+                timer.setRepeats(false);
+                timer.start();
+
+            }
+        });
+        arrancarTemporizadorIncrementoSpinnerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timerSpinner = new Timer(1000, t -> {
+                    int v = (Integer) spinner1.getValue();
+                    spinner1.setValue(v + 1);
+                });
+                timerSpinner.setRepeats(true);
+                timerSpinner.start();
+            }
+        });
+        pararButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timerSpinner.stop();
+            }
+        });
+
+        // Creacion de temporizador para la incrementar el progressBar
+
+        timerProgressBar = new Timer (1000, t ->{
+            int valor = progressBar1.getValue();
+            progressBar1.setValue(valor + 1);
+        });
+
+        arrancarPararButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (timerProgressBar.isRunning()) {
+                    timerProgressBar.stop();
+                } else {
+                    timerProgressBar.start();
+                }
             }
         });
     }
