@@ -1,6 +1,7 @@
 package PruebaSwing1;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -107,7 +108,6 @@ public class Form1 {
         });
 
         // Creacion de temporizador para la incrementar el progressBar
-
         timerProgressBar = new Timer (1000, t ->{
             int valor = progressBar1.getValue();
             progressBar1.setValue(valor + 1);
@@ -142,4 +142,5 @@ public class Form1 {
 
 
     }
+
 }
