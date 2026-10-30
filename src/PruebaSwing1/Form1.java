@@ -2,10 +2,7 @@ package PruebaSwing1;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 public class Form1 {
     private JPanel jPanel1;
@@ -77,12 +74,15 @@ public class Form1 {
 
             }
         });
+        lanzarUnTemporizadorButton.setMnemonic(KeyEvent.VK_T);
         lanzarUnTemporizadorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Timer timer = new Timer (2000, t ->{
-                        JOptionPane.showMessageDialog(jPanel1,"Hola Jander");
-                        JOptionPane.showMessageDialog(jPanel1,"Hola Paco");
+                        JOptionPane.showMessageDialog(jPanel1,"Porque te amo con locura");
+                        JOptionPane.showMessageDialog(jPanel1,"No hay dia que no piense en ti");
+                    JOptionPane.showMessageDialog(jPanel1,"Cada que consigo hacer algo nuevo");
+                    JOptionPane.showMessageDialog(jPanel1,"Eres la primera que quiero que lo sepa");
                 });
                 timer.setRepeats(false);
                 timer.start();
