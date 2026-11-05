@@ -11,8 +11,13 @@ public class Form1 {
     private JButton añadirElementoButton;
     private JTextField textField1;
     private JButton eliminarSeleccionadoButton;
+    private JTextField textField2;
+    private JButton editarButton;
+    private JButton guardarButton;
 
-    private DefaultListModel<String> model = new DefaultListModel<>();
+    //private DefaultListModel<String> model = new DefaultListModel<>();
+
+    private DefaultListModel<Libro> model;
 
     public Form1() {
         DefaultListModel model = new DefaultListModel();
@@ -42,6 +47,31 @@ public class Form1 {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.removeElement(list1.getSelectedValue());
+            }
+        });
+
+        editarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //String valor = model.getElementAt(list1.getSelectedIndex());
+                String valor = (String) list1.getSelectedValue();
+                textField2.setText(valor);
+
+            }
+        });
+
+        guardarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String valor = textField2.getText();
+                if (!valor.equals("")) {
+                    int posicion = list1.getSelectedIndex();
+                    if (posicion >= 0) {
+                        model.setElementAt(valor, list1.getSelectedIndex());
+                        textField2.setText("");
+                        list1.clearSelection();
+                    }
+                }
             }
         });
     }
