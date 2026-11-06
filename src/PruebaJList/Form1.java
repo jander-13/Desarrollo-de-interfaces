@@ -15,9 +15,9 @@ public class Form1 {
     private JButton editarButton;
     private JButton guardarButton;
 
-    //private DefaultListModel<String> model = new DefaultListModel<>();
+    private DefaultListModel<String> model = new DefaultListModel<>();
 
-    private DefaultListModel<Libro> model;
+
 
     public Form1() {
         DefaultListModel model = new DefaultListModel();
